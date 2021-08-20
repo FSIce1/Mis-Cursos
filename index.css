@@ -9,13 +9,18 @@
     );
 
     --blanco: #fafafa;
-    --oscuro: #313131;
+    --oscuro: #35393B;
     --oscuro2: #181821;
     --verde: #98CA3F;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
-    background: var(--oscuro2);
+    background: var(--oscuro);
     margin: 0;
     
     font-family: "Roboto", sans-serif;
@@ -36,6 +41,50 @@ header {
 figure {
     margin: 0;
     padding: 0;
+}
+
+.switch {
+    margin: 0px 0px 0px 10px;
+}
+
+input[type="checkbox"] {
+	visibility: hidden;
+}
+
+input[type="checkbox"]:checked + label {
+    transform: rotate(360deg);
+    background-color: var(--verde);
+}
+
+input[type="checkbox"]:checked + label:before {
+    transform: translateX(25px);
+    background-color: #FFF;
+}
+
+.label {
+	display: flex;
+	width: 60px;
+	height: 30px;
+	border: 3px solid;
+	border-radius: 99em;
+	position: relative;
+	transition: transform .75s ease-in-out;
+	transform-origin: 50% 50%;
+	cursor: pointer;
+}
+
+.label:before {
+    transition: transform .75s ease;
+    transition-delay: .5s;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    top: 3px;
+    left: 5px;
 }
 
 
@@ -78,7 +127,7 @@ figure {
 
     width: 100%;
     height: fit-content;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .formulario-container > label {
@@ -108,10 +157,10 @@ figure {
     width: 150px;
     height: 40px;
     border: 3px solid var(--verde);
-    background: var(--oscuro2);
+    background: var(--oscuro);
     border-radius: 5px;
     font-size: 1rem;
-    margin: 25px 0px;
+    margin: 20px 0px;
     color: var(--verde);
 
     cursor: pointer;
@@ -123,7 +172,7 @@ figure {
     align-items: center;
     justify-content: center;
 
-    margin: 10px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
 .derecha {
@@ -135,15 +184,19 @@ figure {
 .cursos-contenedor {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     width: 100%;
-    height: fit-content;
+    
+    margin: 25px 0px;
+    margin-bottom: 200px;
+    
 }
 
 .cursos-lista {
     font-weight: 300;
     font-size: 1.2rem;
+    height: 150px;
     /* width: 300px; */
 
 }
@@ -155,7 +208,7 @@ figure {
 
 .cursos-lista__header > th {
     padding: 2px 8px;
-    color: var(--oscuro2);
+    color: var(--oscuro);
 }
 
 .centrame {
@@ -163,7 +216,7 @@ figure {
 }
 
 .tabla {
-    width: 300px;
+    width: 350px;
     border: 2px solid var(--verde);
 }
 
@@ -173,7 +226,7 @@ figure {
 }
 
 .tabla tbody {
-    height: 100px;
+    height: 115px;
     overflow-y: scroll;
     overflow-x: auto;
 }
@@ -212,9 +265,8 @@ tbody td:last-child, thead th:last-child {
     width: 100%;
     background-image: var(--fondo);
     
-    height: fit-content;
     position: absolute;
-    bottom: 0;
+    bottom: 0px; 
 }
 
 .footer-titulo {

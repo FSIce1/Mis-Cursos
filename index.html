@@ -16,7 +16,7 @@
 
 <body>
     
-    <div id="main">
+    <div id="main" :style="{ background: '#'+color}">
         
 
         <!-- *CABECERA -->
@@ -35,27 +35,32 @@
 
         </header>
 
-        <!-- *FORMULARIO DE CURSO -->
-        
+        <!-- <input class="button " type="button" :style="{ background: '#'+color}" v-on:click="cambiaColor" value="Agrega Curso"> -->
+
+        <!--!SWICTH-->
+        <div class="switch">
+            <input type="checkbox" id="switch" v-on:click="cambiaColor">
+            <label class="label" for="switch"></label>
+        </div>
+
+        <!-- *FORMULARIO DE CURSO -->        
         <section class="formulario-container">
 
-            <span v-if="error" class="error">Error: Debe llenar los campos</span>
+            <span v-if="error" :style="{color: '#'+colorError}" class="error" >Error: Debe llenar los campos</span>
             
-            <label for="nombreCurso">Curso: </label>
+            <label for="nombreCurso" :style="{color: '#'+colorTexto}">Curso: </label>
             <input class="input" type="text" v-model="nombreCurso" name="nombreCurso" placeholder="Ingrese el nombre del curso">
 
-            <label for="numeroCurso">Cantidad de Horas: </label>
+            <label for="numeroCurso" :style="{color: '#'+colorTexto}">Cantidad de Horas: </label>
             <input class="input" type="number" v-model="numeroCurso" name="numeroCurso" placeholder="Ingrese el número de horas">
 
-            <input class="button" type="button" v-on:click="agregaCurso" value="Agrega Curso">
+            <input class="button" type="button" :style="{ background: '#'+color}" v-on:click="agregaCurso" value="Agrega Curso">
 
         </section>
         
         <!-- *TOTAL DE HORAS -->
-
         <section class="total-horas">
-            <p>🕑 Total de horas: <span class="error derecha">{{tiempototal}}</span> </p>
-            
+            <p :style="{color: '#'+colorTexto}">🕑 Total de horas: <span :style="{color: '#'+colorError}" class="error derecha">{{tiempototal}}</span> </p>  
         </section>
 
         <!-- *LISTA DE CURSOS -->
@@ -74,8 +79,8 @@
     
                     <tbody>
                         <tr v-for="(curso, key) in cursos" :key="key">
-                            <td>{{ curso.nombreCurso }}</td>
-                            <td class="centrame">{{ curso.numeroCurso }}</td>
+                            <td :style="{color: '#'+colorTexto}">{{ curso.nombreCurso }}</td>
+                            <td :style="{color: '#'+colorTexto}" class="centrame">{{ curso.numeroCurso }}</td>
                         </tr>
                     </tbody>
     
@@ -86,15 +91,11 @@
         </section>
 
         <!-- *FOOTER -->
-
         <footer class="footer">
             <p class="footer-titulo" >Hecha por mi <span>🦾</span>Fs1</p>
 
             <ul class="footer-list-items">
-                <!-- <li v-for="(student, key) in students" v-bind:key="key">
-                    🔥 {{ student }}
-                </li>  -->
-
+            
                 <li>
                     <a href="#">
                         <img src="img/facebook.png" alt="Facebook">
@@ -115,12 +116,6 @@
                         <img src="img/github.png" alt="GitHub">
                     </a>
                 </li>
-<!-- 
-                <li>Nombre 1</li>
-                <li>Nombre 2</li>
-                <li>Nombre 3</li>
-                <li>Nombre 4</li>
-                <li>Nombre 5</li> -->
 
             </ul>
 
@@ -128,6 +123,8 @@
             <span class="footer-hecha">Hecha con <a href="https://vuejs.org/" target="_blank">Vue💚</a></span>
 
         </footer>
+    
+
     </div>
 
     

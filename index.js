@@ -13,13 +13,15 @@ new Vue({
             students: ["Wandy Santana", "Megan Herrera", "Zeus Amenadiel", "Johan Garzon"],
             cursos: [],
             nombreCurso: "",
+            color: "35393B",
+            colorTexto: "fafafa",
             numeroCurso: "",
+            colorError: "98CA3F",
             error: false
         }
     },
     methods: {
         agregaCurso(){
-            console.log('SSS');
             if(this.nombreCurso === "" || this.numeroCurso === ""){
                 return (this.error = true)
             } else {
@@ -36,7 +38,26 @@ new Vue({
             this.nombreCurso = "";
             this.numeroCurso = "";
 
+        },
+        
+        cambiaColor(){
+
+            console.log(this.color)
+
+            if(this.color==='35393B'){ // DE OSCURO -> BLANCO
+                this.color='fafafa'; // Fondo blanco 
+                this.colorTexto='35393B'; // Texto color plomo
+                this.colorError='ff0000'; // Error color rojo
+            }else { // De BLANCO -> OSCURO
+                this.color='35393B';    // Fondo plomo
+                this.colorTexto='fafafa'; // Texto color blanco
+                this.colorError='98CA3F'; // Error color verde
+            }
+
+            //this.color=='35393B'?this.color=='fafafa':this.color=='35393B'
+            //this.color = this.color.split('').reverse().join('')
         }
+
     },
 
     computed: {
