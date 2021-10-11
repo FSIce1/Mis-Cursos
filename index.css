@@ -19,6 +19,7 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -48,7 +49,7 @@ figure {
 }
 
 .switch {
-    margin: 0px 0px 0px 10px;
+    padding-left: 10px;
 }
 
 input[type="checkbox"] {
@@ -239,6 +240,16 @@ input[type="checkbox"]:checked + label:before {
 .tabla thead tr th {
     width: 160px;
     border: 0.2px solid var(--verde);
+
+    max-width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.tabla tbody tr td {
+    width: 200px;
 }
 
 .tabla thead th:last-child {
@@ -249,19 +260,9 @@ thead tr th {
     line-height: 30px;
 }
 
-tbody td:last-child, thead th:last-child {
+/* tbody td:last-child, thead th:last-child {
     border-right: none !important;
-}
-
-/* .tabla {
-    max-width: 50%;
-    overflow-y: scroll;
-} 
-
-.cursos-lista tbody tr:nth-child(2n){
-    background:var(--verde);
-}
-*/
+} */
 
 /* !PARA EL FOOTER */
 
@@ -323,4 +324,113 @@ tbody td:last-child, thead th:last-child {
 
 .footer-hecha > a:visited {
     color: #98CA3F;
+}
+
+
+/*? RESPONSIVE DESIGN*/
+
+/*TODO: Entre 320px y 374px */
+@media screen and (min-width: 320px) and (max-width: 374px) {
+
+    .tabla {
+        width: 250px;
+    }
+
+    .label {
+        width: 50px;
+        height: 26px;
+    }
+
+    .label:before {
+        width: 20px;
+        height: 20px;
+
+        top: 2.5px;
+        left: 5px;
+    }
+
+    .tabla tbody tr td,
+    .tabla thead tr th {
+        width: 160px;
+
+        max-width: 117px;
+    }
+
+    .tabla tbody tr td {
+        width: 120px;
+    }
+
+    input[type="checkbox"]:checked + label:before {
+        transform: translateX(24px);
+        background-color: #FFF;
+    }
+
+    .input {
+        width: 250px;
+        font-size: 14px;
+    }
+
+    .formulario-container > label {
+        font-size: 16px;
+    }
+
+}
+
+/*TODO: Entre 375px y 424px */
+@media screen and (min-width: 375px) and (max-width: 424px) {
+
+    .tabla {
+        width: 300px;
+    }
+
+    .label {
+        width: 50px;
+        height: 26px;
+    }
+
+    .label:before {
+        width: 20px;
+        height: 20px;
+
+        top: 2.5px;
+        left: 5px;
+    }
+
+    input[type="checkbox"]:checked + label:before {
+        transform: translateX(24px);
+        background-color: #FFF;
+    }
+
+}
+
+/*TODO: Entre 425px y 578px*/
+@media screen and (min-width: 425px) and (max-width: 578px) {
+
+    .tabla {
+        width: 300px;
+    }
+
+    .label {
+        width: 50px;
+        height: 26px;
+    }
+
+    .label:before {
+        width: 20px;
+        height: 20px;
+
+        top: 2.5px;
+        left: 5px;
+    }
+
+    input[type="checkbox"]:checked + label:before {
+        transform: translateX(24px);
+        background-color: #FFF;
+    }
+    
+}
+
+/*TODO: Entre 579px y 767px */
+@media screen and (min-width: 579px) and (max-width: 767px) {
+
 }

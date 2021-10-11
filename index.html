@@ -49,7 +49,7 @@
             <span v-if="error" :style="{color: '#'+colorError}" class="error" >Error: Debe llenar los campos</span>
             
             <label for="nombreCurso" :style="{color: '#'+colorTexto}">Curso: </label>
-            <input class="input" type="text" v-model="nombreCurso" name="nombreCurso" placeholder="Ingrese el nombre del curso">
+            <input class="input" type="text" maxlength="50" v-model="nombreCurso" name="nombreCurso" placeholder="Ingrese el nombre del curso">
 
             <label for="numeroCurso" :style="{color: '#'+colorTexto}">Cantidad de Horas: </label>
             <input class="input" type="number" v-model="numeroCurso" name="numeroCurso" placeholder="Ingrese el número de horas">
